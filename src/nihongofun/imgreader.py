@@ -12,8 +12,14 @@ def fetch_file() -> str:
     return file_path
 
 
+def fetch_text(file_path: str) -> list[str]:
+    reader = easyocr.Reader(["en"])
+    return reader.readtext(file_path, detail=0)
+
+
 def main():
-    print(fetch_file())
+    text = fetch_text(fetch_file())
+    print(text)
 
 
 if __name__ == "__main__":
