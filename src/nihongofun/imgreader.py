@@ -13,7 +13,7 @@ def fetch_file() -> str:
 
 
 def fetch_text(file_path: str) -> list[str]:
-    reader = easyocr.Reader(["en"])
+    reader = easyocr.Reader(["ja"])
     return reader.readtext(file_path, detail=0)
 
 
