@@ -3,17 +3,12 @@ from tkinter import filedialog
 
 
 def fetch_file() -> str:
-    print("Please choose an image file for text processing!")
-    file_path = filedialog.askdirectory()
+    file_path = filedialog.askopenfilename(
+        initialdir="/",
+        title="Select An Image",
+        filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png")),
+    )
 
-    while not file_path.lower().endswith((".png", ".jpg")):
-        response = input("No existing file at given path, try again? y/n")
-
-        if response.lower() == "n":
-            file_path = "QUIT!"
-            break
-        else:
-            file_path = filedialog.askdirectory()
     return file_path
 
 
